@@ -25,10 +25,11 @@ const Home = () => {
         muted
       >
         <source
-          src="http://192.168.1.3:8080/videos/cover.mp4"
+          src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/cover.mp4?alt=media&token=c76b7e6e-a461-4344-8bb4-add106e2a2bd"
           type="video/mp4"
         />
       </video>
+
       <div className="bg-blend-color-burn h-screen w-screen absolute bg-black opacity-80 z-10"></div>
       <div className="w-full h-full flex z-20 flex-col justify-around items-center gap-10 absolute ">
         <div className="flex flex-col items-center justify-between gap-4  md:mt-10">
