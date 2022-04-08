@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import GoogleLogin, { GoogleLogout } from 'react-google-login';
-import { AiOutlineGoogle } from 'react-icons/ai';
+import { GoogleLogout } from 'react-google-login';
+import GoogleLoginButton from '../../components/GoogleLoginButton';
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,18 +12,12 @@ const Home = () => {
   const handleFailure = () => {
     console.log('login failed');
   };
-  useEffect(() => {});
   const handleLogout = () => {
     setIsLoggedIn(false);
     console.log('logged out');
   };
   return (
     <div className="h-screen overflow-hidden  w-screen relative">
-      {/* <img
-        src={require('../../images/cover3.jpg')}
-        alt="cover photo"
-        className="h-[110%] w-screen object-cover absolute -top-5 z-10"
-      /> */}
       <video
         className="w-screen absolute object-cover  h-screen"
         autoPlay
@@ -41,27 +35,15 @@ const Home = () => {
           <h1 className="text-7xl font-brand text-red-500 md:text-9xl">
             pbook
           </h1>
-          <p className="text-gray-400 font-main font-bold ">
-            read & review books with friends.
+          <p className="text-gray-400 font-main font-semibold ">
+            read & review <span className="text-gray-300"> books</span> with
+            friends.
           </p>
         </div>
         {!isLoggedIn ? (
-          <GoogleLogin
-            clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}
-            buttonText="Sign in with google"
-            render={(renderProps) => (
-              <button
-                className="cursor-pointer bg-blue-500 text-white font-bold font-main px-3 gap-4 py-2 rounded-md flex justify-between items-center hover:bg-blue-400 focus:bg-blue-400 transition-all duration-200 ease-in-out active:bg-blue-500 active:scale-95"
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
-              >
-                <AiOutlineGoogle className="text-2xl" />
-                Sign in with Google
-              </button>
-            )}
-            onSuccess={handleSuccess}
-            onFailure={handleFailure}
-            cookiePolicy={'single_host_origin'}
+          <GoogleLoginButton
+            handleSuccess={handleSuccess}
+            handleFailure={handleFailure}
           />
         ) : (
           <GoogleLogout
