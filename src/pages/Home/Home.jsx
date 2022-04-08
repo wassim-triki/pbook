@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import GoogleLogin, { GoogleLogout } from 'react-google-login';
 import { AiOutlineGoogle } from 'react-icons/ai';
+
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const responseGoogle = (response) => {
+  const handleSuccess = (response) => {
     console.log(response.profileObj);
     setIsLoggedIn(true);
+  };
+  const handleFailure = () => {
+    console.log('login failed');
   };
   useEffect(() => {});
   const handleLogout = () => {
@@ -20,21 +24,18 @@ const Home = () => {
         alt="cover photo"
         className="h-[110%] w-screen object-cover absolute -top-5 z-10"
       /> */}
-      <div>
-        <iframe
-          src="https://gifer.com/embed/EMiD"
-          width="100%"
-          height="100%"
-          className="absolute top-0 left-0"
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
-      </div>
-      <p>
-        <a href="https://gifer.com">via GIFER</a>
-      </p>
-
-      <div className="bg-blend-color-burn h-screen w-screen absolute bg-black opacity-70 z-10"></div>
+      <video
+        className="w-screen absolute object-cover  h-screen"
+        autoPlay
+        loop
+        muted
+      >
+        <source
+          src="http://192.168.1.3:8080/videos/cover.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div className="bg-blend-color-burn h-screen w-screen absolute bg-black opacity-80 z-10"></div>
       <div className="w-full h-full flex z-20 flex-col justify-around items-center gap-10 absolute ">
         <div className="flex flex-col items-center justify-between gap-4  md:mt-10">
           <h1 className="text-7xl font-brand text-red-500 md:text-9xl">
@@ -58,8 +59,8 @@ const Home = () => {
                 Sign in with Google
               </button>
             )}
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            onSuccess={handleSuccess}
+            onFailure={handleFailure}
             cookiePolicy={'single_host_origin'}
           />
         ) : (
