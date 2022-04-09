@@ -34,7 +34,6 @@ const MobileNav = () => {
   };
   useEffect(() => {
     window.addEventListener('scroll', controlNav);
-    console.log(showNav);
   }, [lastScrollY]);
 
   return (
