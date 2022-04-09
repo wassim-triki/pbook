@@ -38,7 +38,7 @@ const MobileNav = () => {
 
   return (
     <nav
-      className={`flex items-center justify-around shadow-[0_0_20px_5px_rgba(0,0,0,.05)]  fixed ${
+      className={`flex lg:hidden items-center justify-around shadow-[0_0_20px_5px_rgba(0,0,0,.05)]  fixed ${
         showNav ? ' bottom-5 opacity-100 ' : ' -bottom-12 opacity-0 '
       } left-[18%]   w-[65%] rounded-full p-3 transition-all duration-200 ease-in-out`}
     >

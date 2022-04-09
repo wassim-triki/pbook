@@ -11,6 +11,9 @@
   .nav-icon {
     @apply text-2xl text-gray-500 outline-none cursor-pointer;
   }
+  .nav-icon-large {
+    @apply hover:bg-gray-200 rounded-full active:scale-95;
+  }
 }
 
 * {

@@ -6,14 +6,14 @@ import UserContext from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import data from '../../data';
 
-const URL = 'http://localhost:3001';
+const URL_LOCAL = 'http://localhost:3001';
+const URL_HEROKU = 'https://pbook-app.herokuapp.com';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
-  console.log(user);
 
   useEffect(() => {
     user && navigate('/');
@@ -32,7 +32,7 @@ const Home = () => {
         firstName: googleData.givenName,
         lastName: googleData.familyName,
       };
-      const resp = await axios.post(`${URL}/api/signin`, currentUser);
+      const resp = await axios.post(`${URL_LOCAL}/api/signin`, currentUser);
       const userData = resp.data;
       localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);

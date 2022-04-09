@@ -6,25 +6,36 @@ import UserContext from '../context/UserContext';
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
   return (
-    <nav className="invisible lg:visible px-10 w-screen h-20 flex items-center">
-      <img
-        src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/logo-192x192.png?alt=media&token=6a05f4b1-bfa4-43ed-8ca6-34454a725c41"
-        alt="logo"
-        className="h-2/4 w-auto"
-      />
-      <Link to="/">Home</Link>
-      <form>
-        <input type="text" placeholder="Search" />
+    <nav className="hidden lg:visible px-10 w-screen gap-4 h-20 lg:flex items-center text-lg fixed">
+      <Link
+        to={'/'}
+        className="h-full w-auto  flex items-center justify-center"
+      >
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/logo-192x192.png?alt=media&token=6a05f4b1-bfa4-43ed-8ca6-34454a725c41"
+          alt="logo"
+          className="h-1/2"
+        />
+      </Link>
+      <Link to="/" className=" px-4 py-2  nav-icon-large  ">
+        Home
+      </Link>
+      <form className="bg-gray-200 rounded-full flex items-center relative flex-1">
+        <BiSearch className="absolute p-2 text-gray-400    rounded-full w-auto h-full cursor-pointer" />
+        <input
+          type="text"
+          placeholder="Search"
+          className="bg-gray-200 rounded-full py-2 px-4 pl-10 focus:ring-2 outline-none active:ring-2 ring-offset-1 w-full"
+        />
       </form>
-      <AiFillBell className="nav-icon" />
+      <AiFillBell className="nav-icon text-5xl p-2  nav-icon-large" />
       <Link to={'/profile'}>
-        <div className="w-7 h-7 rounded-full overflow-hidden ">
+        <div className="w-12 h-12 p-2 rounded-full  overflow-hidden hover:bg-gray-200 nav-icon-large">
           <img
             src={user?.imageUrl}
             alt="prfile picture"
-            className="object-cover"
+            className="object-cover rounded-full w-12"
           />
         </div>
       </Link>
