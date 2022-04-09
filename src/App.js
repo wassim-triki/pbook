@@ -1,9 +1,12 @@
+import { UserProvider } from './context/UserContext';
 import Home from './pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <UserProvider>
+        <Home />
+      </UserProvider>
     </div>
   );
 }

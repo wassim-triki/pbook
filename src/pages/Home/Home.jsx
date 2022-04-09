@@ -1,19 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { GoogleLogout } from 'react-google-login';
+import axios from 'axios';
 import GoogleLoginButton from '../../components/GoogleLoginButton';
+import UserContext from '../../context/UserContext';
+
+const URL = 'http://localhost:3001';
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { user, setUser } = useContext(UserContext);
+  console.log(user);
 
-  const handleSuccess = (response) => {
-    console.log(response.profileObj);
-    setIsLoggedIn(true);
+  useEffect(() => {});
+
+  const handleSuccess = async (response) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const resp = await axios.post(`${URL}/api/signin`, response.profileObj);
+      const userData = resp.data;
+      localStorage.setItem('user', JSON.stringify(userData));
+      setUser(userData);
+      setIsLoggedIn(true);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
   const handleFailure = () => {
     console.log('login failed');
   };
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem('user');
+    setUser(null);
     console.log('logged out');
   };
   return (
@@ -41,7 +64,7 @@ const Home = () => {
             friends.
           </p>
         </div>
-        {!isLoggedIn ? (
+        {!user ? (
           <GoogleLoginButton
             handleSuccess={handleSuccess}
             handleFailure={handleFailure}
