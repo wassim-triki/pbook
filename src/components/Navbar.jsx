@@ -8,7 +8,7 @@ const Navbar = () => {
   const { user } = useContext(UserContext);
   console.log(user);
   return (
-    <nav className="px-10 w-screen h-20 flex items-center">
+    <nav className="invisible lg:visible px-10 w-screen h-20 flex items-center">
       <img
         src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/logo-192x192.png?alt=media&token=6a05f4b1-bfa4-43ed-8ca6-34454a725c41"
         alt="logo"
