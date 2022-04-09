@@ -4,11 +4,11 @@ import axios from 'axios';
 import GoogleLoginButton from '../../components/GoogleLoginButton';
 import UserContext from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import data from '../../data';
 
 const URL = 'http://localhost:3001';
 
 const Home = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { user, setUser } = useContext(UserContext);
@@ -23,11 +23,19 @@ const Home = () => {
     try {
       setLoading(true);
       setError(null);
-      const resp = await axios.post(`${URL}/api/signin`, response.profileObj);
+      const googleData = response.profileObj;
+      const currentUser = {
+        userId: googleData.googleId,
+        imageUrl: googleData.imageUrl,
+        email: googleData.email,
+        fullName: googleData.name,
+        firstName: googleData.givenName,
+        lastName: googleData.familyName,
+      };
+      const resp = await axios.post(`${URL}/api/signin`, currentUser);
       const userData = resp.data;
       localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);
-      setIsLoggedIn(true);
       navigate('/');
     } catch (error) {
       setError(error.message);
@@ -38,12 +46,7 @@ const Home = () => {
   const handleFailure = () => {
     console.log('login failed');
   };
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem('user');
-    setUser(null);
-    console.log('logged out');
-  };
+
   return (
     <div className="h-screen overflow-hidden  w-screen relative">
       <video
@@ -62,26 +65,17 @@ const Home = () => {
       <div className="w-full h-full flex z-20 flex-col justify-around items-center gap-10 absolute ">
         <div className="flex flex-col items-center justify-between gap-4  md:mt-10">
           <h1 className="text-7xl font-brand text-red-500 md:text-9xl">
-            pbook
+            {data.title}
           </h1>
           <p className="text-gray-400 font-main font-semibold ">
             read & review <span className="text-gray-300"> books</span> with
             friends.
           </p>
         </div>
-        {!user ? (
-          <GoogleLoginButton
-            handleSuccess={handleSuccess}
-            handleFailure={handleFailure}
-          />
-        ) : (
-          <GoogleLogout
-            clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}
-            buttonText="Logout"
-            onLogoutSuccess={handleLogout}
-          ></GoogleLogout>
-        )}
-        ,
+        <GoogleLoginButton
+          handleSuccess={handleSuccess}
+          handleFailure={handleFailure}
+        />
       </div>
     </div>
   );

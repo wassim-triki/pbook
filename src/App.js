@@ -4,12 +4,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signin from './pages/Signin';
 import Home from './pages/Home';
 import ProtectedRoute from './components/ProtectedRoute';
+import MobileNav from './components/MobileNav';
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
         <Router>
+          <MobileNav />
+
           <Routes>
             <Route path="/signin" element={<Signin />} />
             <Route
