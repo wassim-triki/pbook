@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import data from '../../data';
 
 const URL_LOCAL = 'http://localhost:3001';
-const URL_HEROKU = 'https://pbook-app.herokuapp.com';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -23,6 +22,7 @@ const Home = () => {
     try {
       setLoading(true);
       setError(null);
+      console.log(response);
       const googleData = response.profileObj;
       const currentUser = {
         userId: googleData.googleId,
@@ -32,7 +32,12 @@ const Home = () => {
         firstName: googleData.givenName,
         lastName: googleData.familyName,
       };
-      const resp = await axios.post(`${URL_LOCAL}/api/signin`, currentUser);
+      const resp = await axios.post(
+        `${process.env.REACT_APP_PBOOK_PUBLIC_URL}/api/signin`,
+        {
+          tokenId: response.tokenId,
+        }
+      );
       const userData = resp.data;
       localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);

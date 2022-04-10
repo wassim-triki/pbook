@@ -6,7 +6,6 @@ import UserContext from '../context/UserContext';
 import { HiUserCircle } from 'react-icons/hi';
 const Navbar = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
   return (
     <nav className="hidden lg:visible px-10 w-screen gap-4 h-20 lg:flex items-center text-lg fixed">
       <Link

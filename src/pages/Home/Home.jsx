@@ -12,14 +12,11 @@ const Home = () => {
     console.log('logged out');
   };
   return (
-    <>
-      <div className="h-[200vh]"></div>
-      {/* <GoogleLogout
-        clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}
-        buttonText="Logout"
-        onLogoutSuccess={handleLogout}
-      ></GoogleLogout> */}
-    </>
+    <GoogleLogout
+      clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+      buttonText="Logout"
+      onLogoutSuccess={handleLogout}
+    ></GoogleLogout>
   );
 };
 
