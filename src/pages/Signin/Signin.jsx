@@ -33,7 +33,7 @@ const Home = () => {
         lastName: googleData.familyName,
       };
       const resp = await axios.post(
-        `${process.env.REACT_APP_PBOOK_PUBLIC_URL}/api/signin`,
+        `${process.env.REACT_APP_PBOOK_API}/api/signin`,
         {
           tokenId: response.tokenId,
         }
