@@ -32,7 +32,7 @@ const Home = () => {
         firstName: googleData.givenName,
         lastName: googleData.familyName,
       };
-      const resp = await axios.post(`${URL_LOCAL}/api/signin`, currentUser);
+      const resp = await axios.post(`${URL_HEROKU}/api/signin`, currentUser);
       const userData = resp.data;
       localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);
