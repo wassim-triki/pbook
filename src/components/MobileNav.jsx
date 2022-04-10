@@ -56,13 +56,17 @@ const MobileNav = () => {
         );
       })}
       <Link to={'/profile'}>
-        <div className="w-7 h-7 rounded-full overflow-hidden ">
-          <img
-            src={user?.imageUrl}
-            alt="prfile picture"
-            className="object-cover"
-          />
-        </div>
+        {user?.imageUrl ? (
+          <div className="w-7 h-7 rounded-full overflow-hidden ">
+            <img
+              src={user?.imageUrl}
+              alt="prfile picture"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <HiUserCircle className="nav-icon" />
+        )}
       </Link>
     </nav>
   );

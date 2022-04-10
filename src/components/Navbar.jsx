@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
 import { AiFillBell } from 'react-icons/ai';
 import UserContext from '../context/UserContext';
-
+import { HiUserCircle } from 'react-icons/hi';
 const Navbar = () => {
   const { user } = useContext(UserContext);
+  console.log(user);
   return (
     <nav className="hidden lg:visible px-10 w-screen gap-4 h-20 lg:flex items-center text-lg fixed">
       <Link
@@ -31,13 +32,17 @@ const Navbar = () => {
       </form>
       <AiFillBell className="nav-icon text-5xl p-2  nav-icon-large" />
       <Link to={'/profile'}>
-        <div className="w-12 h-12 p-2 rounded-full  overflow-hidden hover:bg-gray-200 nav-icon-large">
-          <img
-            src={user?.imageUrl}
-            alt="prfile picture"
-            className="object-cover rounded-full w-12"
-          />
-        </div>
+        {user?.imageUrl ? (
+          <div className="w-12 h-12 p-2 rounded-full  overflow-hidden hover:bg-gray-200 nav-icon-large">
+            <img
+              src={user?.imageUrl}
+              alt="prfile picture"
+              className="object-cover rounded-full w-12"
+            />
+          </div>
+        ) : (
+          <HiUserCircle className="nav-icon" />
+        )}
       </Link>
     </nav>
   );

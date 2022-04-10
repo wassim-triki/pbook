@@ -24,6 +24,10 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/profile"
+              element={<ProtectedRoute></ProtectedRoute>}
+            />
           </Routes>
         </Router>
       </UserProvider>
