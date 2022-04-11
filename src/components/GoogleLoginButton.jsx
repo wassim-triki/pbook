@@ -2,9 +2,10 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import { AiOutlineGoogle } from 'react-icons/ai';
 const GoogleLoginButton = ({ handleSuccess, handleFailure }) => {
+  console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
   return (
     <GoogleLogin
-      clientId="786533845097-ptfkqg3fqcdgdurjmnjtcjpa1olh5c8b.apps.googleusercontent.com"
+      clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
       buttonText="Sign in with google"
       render={(renderProps) => (
         <button
