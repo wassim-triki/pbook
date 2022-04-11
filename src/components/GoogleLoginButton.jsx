@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import { AiOutlineGoogle } from 'react-icons/ai';
 const GoogleLoginButton = ({ handleSuccess, handleFailure }) => {
-  console.log('google clinet id: ', process.env.REACT_APP_GOOGLE_CLIENT_ID);
+  // console.log('google clinet id: ', process.env.REACT_APP_GOOGLE_CLIENT_ID);
   return (
     <GoogleLogin
       clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
