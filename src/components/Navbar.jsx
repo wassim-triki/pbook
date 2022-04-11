@@ -13,7 +13,7 @@ const Navbar = () => {
         className="h-full w-auto  flex items-center justify-center"
       >
         <img
-          src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/logo-192x192.png?alt=media&token=6a05f4b1-bfa4-43ed-8ca6-34454a725c41"
+          src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/logo-192x192.png?alt=media&token=2b14b91b-fec6-4b3e-b790-6ec3306f55c4"
           alt="logo"
           className="h-1/2"
         />
