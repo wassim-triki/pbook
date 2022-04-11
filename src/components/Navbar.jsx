@@ -4,6 +4,7 @@ import { BiSearch } from 'react-icons/bi';
 import { AiFillBell } from 'react-icons/ai';
 import UserContext from '../context/UserContext';
 import { HiUserCircle } from 'react-icons/hi';
+
 const Navbar = () => {
   const { user } = useContext(UserContext);
   return (
