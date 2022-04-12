@@ -31,9 +31,12 @@ const Home = () => {
         firstName: googleData.givenName,
         lastName: googleData.familyName,
       };
-      const resp = await axios.post(`${process.env.PBOOK_API}/api/signin`, {
-        tokenId: response.tokenId,
-      });
+      const resp = await axios.post(
+        `${process.env.REACT_APP_PBOOK_API}/api/signin`,
+        {
+          tokenId: response.tokenId,
+        }
+      );
       const userData = resp.data;
       localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);
