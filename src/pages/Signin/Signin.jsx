@@ -57,6 +57,8 @@ const Home = () => {
         autoPlay
         loop
         muted
+        // preload="auto"
+        poster="../../media/images/cover.jpg"
       >
         <source
           src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/cover.mp4?alt=media&token=c76b7e6e-a461-4344-8bb4-add106e2a2bd"
