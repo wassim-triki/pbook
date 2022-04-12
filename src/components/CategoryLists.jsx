@@ -4,7 +4,7 @@ import CategoryList from './CategoryList';
 const capitalize = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase();
 const CategoryLists = ({ data }) => {
   return (
-    <div className="lg:mt-14 dark:text-white flex flex-col gap-6 items-center">
+    <div className="lg:mt-14 px-5 dark:text-white flex flex-col gap-6 items-center">
       {categories.map(
         (categoryName) =>
           data[categoryName] && (
