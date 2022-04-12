@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
 import { AiFillBell } from 'react-icons/ai';
 import UserContext from '../context/UserContext';
@@ -11,13 +11,13 @@ import DarkModeContext, { useDarkMode } from '../context/DarkModeContext';
 const Navbar = () => {
   const { user } = useContext(UserContext);
   const { isDark, setIsDark } = useDarkMode();
-  useEffect(() => console.log(isDark), [isDark]);
+  const { pathname } = useLocation();
   const toggleDarkMode = () => setIsDark(!isDark);
   return (
     <nav
-      className={`hidden lg:visible px-10 w-screen gap-4 h-20 ${
+      className={`hidden lg:visible px-10 w-full gap-4 h-20 ${
         user ? 'lg:flex' : 'hidden'
-      } items-center text-lg fixed z-50 dark:text-white`}
+      } items-center text-lg fixed z-50 dark:text-white dark:bg-bg-dark dark-mode-transition bg-white font-body`}
     >
       <Link
         to={'/'}
@@ -29,7 +29,12 @@ const Navbar = () => {
           className="h-1/2"
         />
       </Link>
-      <Link to="/" className=" px-4 py-2 text-xl nav-icon-large  ">
+      <Link
+        to="/"
+        className={`px-4 py-2 text-xl nav-icon-large dark-mode-transition font-bold  ${
+          pathname === '/' ? 'text-black' : 'text-gray-500'
+        }`}
+      >
         Home
       </Link>
       <form className="bg-gray-200 rounded-full flex items-center relative flex-1">
@@ -37,25 +42,25 @@ const Navbar = () => {
         <input
           type="text"
           placeholder="Search"
-          className="bg-gray-200 rounded-full py-2 px-4 pl-10 focus:ring-2 outline-none active:ring-2 ring-offset-1 w-full text-black"
+          className="bg-gray-200 rounded-full py-2 px-4 pl-10 focus:ring-2 outline-none active:ring-2 ring-offset-1 w-full text-black hover:bg-gray-300"
         />
       </form>
-      <AiFillBell className="nav-icon nav-icon-large" />
+      <AiFillBell className="nav-icon nav-icon-large dark-mode-transition" />
       {isDark ? (
         <WiMoonAltWaningGibbous1
-          className="nav-toggle-theme transition-all duration-200 ease-in-out"
+          className="nav-toggle-theme transition-all dark-mode-transition"
           onClick={toggleDarkMode}
         />
       ) : (
         <WiMoonAltWaningCrescent6
-          className="nav-toggle-theme transition-all duration-200 ease-in-out"
+          className="nav-toggle-theme transition-all dark-mode-transition"
           onClick={toggleDarkMode}
         />
       )}
 
       <Link to={'/profile'}>
         {user?.imageUrl ? (
-          <div className="w-12 h-12 p-2 rounded-full  overflow-hidden hover:bg-gray-200 nav-icon-large">
+          <div className="w-12 h-12 p-2 rounded-full  overflow-hidden hover:bg-gray-200 nav-icon-large dark-mode-transition">
             <img
               src={user?.imageUrl}
               alt="prfile picture"

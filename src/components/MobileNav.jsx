@@ -52,7 +52,7 @@ const MobileNav = () => {
         return (
           <Link to={obj.pathname} key={obj.pathname}>
             <Icon
-              className={`nav-icon ${
+              className={`nav-icon dark-mode-transition ${
                 pathname === obj.pathname && 'text-gray-700'
               }`}
             />
@@ -70,17 +70,17 @@ const MobileNav = () => {
             />
           </div>
         ) : (
-          <HiUserCircle className="nav-icon" />
+          <HiUserCircle className="nav-icon dark-mode-transition" />
         )}
       </Link>
       {isDark ? (
         <WiMoonAltWaningGibbous1
-          className="nav-icon"
+          className="nav-icon dark-mode-transition"
           onClick={() => setIsDark(!isDark)}
         />
       ) : (
         <WiMoonAltWaningCrescent6
-          className="nav-icon"
+          className="nav-icon dark-mode-transition"
           onClick={() => setIsDark(!isDark)}
         />
       )}

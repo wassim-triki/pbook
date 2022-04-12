@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         brand: ['Righteous', 'sans-serif'],
         main: ['Comfortaa', 'sans-serif'],
+        body: ['Montserrat', 'sans-serif'],
       },
       colors: {
         'red-main': '#FF4A4A',
