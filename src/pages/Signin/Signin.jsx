@@ -58,7 +58,7 @@ const Home = () => {
         loop
         muted
         // preload="auto"
-        poster="../../media/images/cover.jpg"
+        poster="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/poster.jpg?alt=media&token=1323b7e3-aa68-4b84-93ce-62997d08f568"
       >
         <source
           src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/cover.mp4?alt=media&token=c76b7e6e-a461-4344-8bb4-add106e2a2bd"
