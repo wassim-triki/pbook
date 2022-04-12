@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import data from '../../data';
 
 const URL_LOCAL = 'http://localhost:3001';
-const PBOOK_API = 'https://pbook-app.herokuapp.com';
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -32,7 +31,7 @@ const Home = () => {
         firstName: googleData.givenName,
         lastName: googleData.familyName,
       };
-      const resp = await axios.post(`${PBOOK_API}/api/signin`, {
+      const resp = await axios.post(`${process.env.PBOOK_API}/api/signin`, {
         tokenId: response.tokenId,
       });
       const userData = resp.data;
