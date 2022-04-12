@@ -7,12 +7,14 @@ import axios from 'axios';
 import CategoryList from '../../components/CategoryLists';
 import CategoryLists from '../../components/CategoryLists';
 import { categories } from '../../data';
+import Spinner from '../../components/Spinner';
 const BOOKS_API_SUBJECT =
   'https://www.googleapis.com/books/v1/volumes?q=subject:';
 
 const Home = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getBooksByCategorie = async (categories) => {
@@ -31,15 +33,27 @@ const Home = () => {
         setLoading(false);
       } catch (error) {
         throw error;
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
     getBooksByCategorie(categories);
-
-    // getBooksByCategorie(categories);
   }, []);
+
   return (
-    <div className="py-8 w-full dark:bg-bg-dark dark-mode-transition">
-      {loading ? 'loading...' : <CategoryLists data={data} />}
+    <div
+      className={`py-8 w-full ${
+        loading && 'h-screen'
+      } dark:bg-bg-dark dark-mode-transition dark:text-white ${
+        loading && 'grid place-content-center'
+      }`}
+    >
+      {loading ? (
+        <Spinner color="text-red-main dark:text-white" size="text-4xl" />
+      ) : (
+        <CategoryLists data={data} />
+      )}
     </div>
   );
 };

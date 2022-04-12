@@ -14,9 +14,6 @@ const categoryColors = {
 
 const BookCard = ({ book, categoryName }) => {
   const info = book.volumeInfo;
-  useEffect(() => {
-    console.log(categoryName, categoryColors[categoryName]);
-  }, []);
 
   return (
     <div className="bg-gray-100 dark:bg-bg-dark-50 dark-mode-transition w-full shadow-sm rounded-2xl  p-3 relative min-h-[250px] grid grid-cols-2  font-body min-w-[300px]">
