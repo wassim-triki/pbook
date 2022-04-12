@@ -2,7 +2,7 @@ const data = {
   title: 'pbook',
 };
 
-export const categories = [
+export const categoriesx = [
   // 'antiques & collectibles',
   // 'architecture',
   // 'art',
@@ -58,5 +58,5 @@ export const categories = [
   // 'young adult fiction',
   // 'young adult nonfiction',
 ];
-export const categoriesx = ['psychology'];
+
 export default data;

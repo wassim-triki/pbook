@@ -12,6 +12,7 @@ import DarkModeContext, {
 } from './context/DarkModeContext';
 import { useContext, useEffect } from 'react';
 import DarkModeContainer from './components/DarkModeContainer';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -34,7 +35,11 @@ function App() {
                 />
                 <Route
                   path="/profile"
-                  element={<ProtectedRoute></ProtectedRoute>}
+                  element={
+                    <ProtectedRoute>
+                      <Profile />
+                    </ProtectedRoute>
+                  }
                 />
               </Routes>
             </Router>
