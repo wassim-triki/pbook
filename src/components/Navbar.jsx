@@ -8,7 +8,11 @@ import { HiUserCircle } from 'react-icons/hi';
 const Navbar = () => {
   const { user } = useContext(UserContext);
   return (
-    <nav className="hidden lg:visible px-10 w-screen gap-4 h-20 lg:flex items-center text-lg fixed">
+    <nav
+      className={`hidden lg:visible px-10 w-screen gap-4 h-20 ${
+        user ? 'lg:flex' : 'hidden'
+      } items-center text-lg fixed z-50 `}
+    >
       <Link
         to={'/'}
         className="h-full w-auto  flex items-center justify-center"

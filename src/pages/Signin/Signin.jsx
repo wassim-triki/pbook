@@ -21,7 +21,6 @@ const Home = () => {
     try {
       setLoading(true);
       setError(null);
-      console.log(response);
       const googleData = response.profileObj;
       const currentUser = {
         userId: googleData.googleId,
@@ -52,7 +51,7 @@ const Home = () => {
   };
 
   return (
-    <div className="h-screen overflow-hidden  w-screen relative">
+    <div className="h-screen overflow-hidden  w-screen relative ">
       <video
         className="w-screen absolute object-cover  h-screen"
         autoPlay

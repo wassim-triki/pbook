@@ -12,7 +12,7 @@ const Home = () => {
     console.log('logged out');
   };
   return (
-    <div className="h-[300vh] w-screen">
+    <div className="h-[300vh] w-screen dark:bg-red-main">
       <div className="absolute top-52 text-center w-screen">
         <GoogleLogout
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
