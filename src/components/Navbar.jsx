@@ -32,7 +32,9 @@ const Navbar = () => {
       <Link
         to="/"
         className={`px-4 py-2 text-xl nav-icon-large dark-mode-transition font-bold  ${
-          pathname === '/' ? 'text-black' : 'text-gray-500'
+          pathname === '/'
+            ? 'text-white bg-bg-dark dark:bg-white dark:text-bg-dark'
+            : 'text-gray-500'
         }`}
       >
         Home
