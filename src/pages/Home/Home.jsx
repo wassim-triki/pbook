@@ -23,7 +23,7 @@ const Home = () => {
           categories.map(async (c) => {
             const formattedCat = c.replace(/\s/, '+');
             return axios
-              .get(`${BOOKS_API_SUBJECT}${formattedCat}&maxResults=5`)
+              .get(`${BOOKS_API_SUBJECT}${formattedCat}&maxResults=6`)
               .then((response) => (booksData[c] = response.data.items));
           })
         );
