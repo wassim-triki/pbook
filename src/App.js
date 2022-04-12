@@ -6,31 +6,41 @@ import Home from './pages/Home';
 import ProtectedRoute from './components/ProtectedRoute';
 import MobileNav from './components/MobileNav';
 import Navbar from './components/Navbar';
+import DarkModeContext, {
+  DarkModeProvider,
+  useDarkMode,
+} from './context/DarkModeContext';
+import { useContext, useEffect } from 'react';
+import DarkModeContainer from './components/DarkModeContainer';
 
 function App() {
   return (
-    <div className="App   ">
-      <UserProvider>
-        <Router>
-          <MobileNav />
-          <Navbar />
-          <Routes>
-            <Route path="/signin" element={<Signin />} />
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={<ProtectedRoute></ProtectedRoute>}
-            />
-          </Routes>
-        </Router>
-      </UserProvider>
+    <div className={`App `}>
+      <DarkModeProvider>
+        <DarkModeContainer>
+          <UserProvider>
+            <Router>
+              <MobileNav />
+              <Navbar />
+              <Routes>
+                <Route path="/signin" element={<Signin />} />
+                <Route
+                  path="/"
+                  element={
+                    <ProtectedRoute>
+                      <Home />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/profile"
+                  element={<ProtectedRoute></ProtectedRoute>}
+                />
+              </Routes>
+            </Router>
+          </UserProvider>
+        </DarkModeContainer>
+      </DarkModeProvider>
     </div>
   );
 }

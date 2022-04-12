@@ -8,6 +8,9 @@ import { AiOutlineBell } from 'react-icons/ai';
 import { AiFillBell } from 'react-icons/ai';
 import { HiOutlineUserCircle } from 'react-icons/hi';
 import { HiUserCircle } from 'react-icons/hi';
+import { useDarkMode } from '../context/DarkModeContext';
+import { WiMoonAltWaningCrescent6 } from 'react-icons/wi';
+import { WiMoonAltWaningGibbous1 } from 'react-icons/wi';
 const navLinks = [
   { pathname: '/', iconOutline: HiOutlineHome, iconFill: HiHome },
   { pathname: '/search', iconOutline: BiSearch, iconFill: BiSearch },
@@ -22,6 +25,7 @@ const MobileNav = () => {
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const { pathname } = useLocation();
+  const { isDark, setIsDark } = useDarkMode();
   // useEffect(() => {}, [pathname]);
 
   const controlNav = () => {
@@ -38,9 +42,9 @@ const MobileNav = () => {
 
   return (
     <nav
-      className={`lg:hidden flex items-center justify-around shadow-[0_0_20px_5px_rgba(0,0,0,.05)]  fixed z-50  ${
-        user && showNav ? ' bottom-5 opacity-100 ' : ' -bottom-12 opacity-0 '
-      } left-[18%]   w-[65%] rounded-full p-3 transition-all duration-200 ease-in-out`}
+      className={`lg:hidden flex items-center justify-around shadow-[0_0_20px_5px_rgba(0,0,0,.05)]  fixed z-50 bg-white  ${
+        user && showNav ? ' bottom-12 opacity-100 ' : ' -bottom-12 opacity-0 '
+      } left-[11.5%]   w-[75%] rounded-full p-4 transition-all duration-200 ease-in-out`}
     >
       {navLinks.map((obj) => {
         const iconType = obj.pathname === pathname ? 'iconFill' : 'iconOutline';
@@ -55,6 +59,7 @@ const MobileNav = () => {
           </Link>
         );
       })}
+
       <Link to={'/profile'}>
         {user?.imageUrl ? (
           <div className="w-7 h-7 rounded-full overflow-hidden ">
@@ -68,6 +73,17 @@ const MobileNav = () => {
           <HiUserCircle className="nav-icon" />
         )}
       </Link>
+      {isDark ? (
+        <WiMoonAltWaningGibbous1
+          className="nav-icon"
+          onClick={() => setIsDark(!isDark)}
+        />
+      ) : (
+        <WiMoonAltWaningCrescent6
+          className="nav-icon"
+          onClick={() => setIsDark(!isDark)}
+        />
+      )}
     </nav>
   );
 };

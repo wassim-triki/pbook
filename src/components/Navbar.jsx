@@ -1,17 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
 import { AiFillBell } from 'react-icons/ai';
 import UserContext from '../context/UserContext';
 import { HiUserCircle } from 'react-icons/hi';
+import { WiMoonAltWaningCrescent6 } from 'react-icons/wi';
+import { WiMoonAltWaningGibbous1 } from 'react-icons/wi';
+import DarkModeContext, { useDarkMode } from '../context/DarkModeContext';
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
+  const { isDark, setIsDark } = useDarkMode();
+  useEffect(() => console.log(isDark), [isDark]);
+  const toggleDarkMode = () => setIsDark(!isDark);
   return (
     <nav
       className={`hidden lg:visible px-10 w-screen gap-4 h-20 ${
         user ? 'lg:flex' : 'hidden'
-      } items-center text-lg fixed z-50 `}
+      } items-center text-lg fixed z-50 dark:text-white`}
     >
       <Link
         to={'/'}
@@ -23,7 +29,7 @@ const Navbar = () => {
           className="h-1/2"
         />
       </Link>
-      <Link to="/" className=" px-4 py-2  nav-icon-large  ">
+      <Link to="/" className=" px-4 py-2 text-xl nav-icon-large  ">
         Home
       </Link>
       <form className="bg-gray-200 rounded-full flex items-center relative flex-1">
@@ -31,10 +37,22 @@ const Navbar = () => {
         <input
           type="text"
           placeholder="Search"
-          className="bg-gray-200 rounded-full py-2 px-4 pl-10 focus:ring-2 outline-none active:ring-2 ring-offset-1 w-full"
+          className="bg-gray-200 rounded-full py-2 px-4 pl-10 focus:ring-2 outline-none active:ring-2 ring-offset-1 w-full text-black"
         />
       </form>
-      <AiFillBell className="nav-icon text-5xl p-2  nav-icon-large" />
+      <AiFillBell className="nav-icon nav-icon-large" />
+      {isDark ? (
+        <WiMoonAltWaningGibbous1
+          className="nav-toggle-theme transition-all duration-200 ease-in-out"
+          onClick={toggleDarkMode}
+        />
+      ) : (
+        <WiMoonAltWaningCrescent6
+          className="nav-toggle-theme transition-all duration-200 ease-in-out"
+          onClick={toggleDarkMode}
+        />
+      )}
+
       <Link to={'/profile'}>
         {user?.imageUrl ? (
           <div className="w-12 h-12 p-2 rounded-full  overflow-hidden hover:bg-gray-200 nav-icon-large">
