@@ -22,14 +22,6 @@ const Home = () => {
       setLoading(true);
       setError(null);
       const googleData = response.profileObj;
-      const currentUser = {
-        userId: googleData.googleId,
-        imageUrl: googleData.imageUrl,
-        email: googleData.email,
-        fullName: googleData.name,
-        firstName: googleData.givenName,
-        lastName: googleData.familyName,
-      };
       const resp = await axios.post(
         `${process.env.REACT_APP_PBOOK_API}/api/signin`,
         {
@@ -78,6 +70,7 @@ const Home = () => {
           </p>
         </div>
         <GoogleLoginButton
+          loading={loading}
           handleSuccess={handleSuccess}
           handleFailure={handleFailure}
         />

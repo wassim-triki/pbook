@@ -13,6 +13,7 @@ const Profile = () => {
   return (
     <div className="dark:bg-bg-dark h-screen dark-mode-transition">
       <GoogleLogout
+        className=" absolute top-[50%] left-[45%]"
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="Logout"
         onLogoutSuccess={handleLogout}
