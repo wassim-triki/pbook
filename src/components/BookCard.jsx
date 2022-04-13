@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
+import { BsHeartFill } from 'react-icons/bs';
+import { FaBookReader } from 'react-icons/fa';
+import { FaComments } from 'react-icons/fa';
 
 const categoryColors = {
   psychology: 'teal',
@@ -16,13 +20,15 @@ const BookCard = ({ book, categoryName }) => {
   const info = book.volumeInfo;
 
   return (
-    <div className="bg-gray-100 dark:bg-bg-dark-50 dark-mode-transition w-full shadow-sm rounded-2xl  p-3 relative min-h-[250px] grid grid-cols-2  font-main min-w-[300px]">
-      <div className="relative h-[180px]">
-        <img
-          className="absolute left-1 rounded-2xl -top-10 shadow-xl hover:shadow-2xl cursor-pointer hover:scale-110 transition-all duration-200 ease-in-out"
-          src={info.imageLinks.thumbnail}
-          alt={info.title}
-        />
+    <div className="bg-gray-100 dark:bg-bg-dark-50 dark-mode-transition w-full shadow-sm rounded-2xl  p-3 relative min-h-[300px] grid grid-cols-2  font-main min-w-[300px]">
+      <div className="relative ">
+        <div className="absolute h-[200px] w-[150px]  rounded-2xl -top-10">
+          <img
+            className="shadow-xl hover:shadow-2xl cursor-pointer hover:scale-110 transition-all duration-200 ease-in-out object-cover h-full rounded-2xl"
+            src={info.imageLinks.thumbnail}
+            alt={info.title}
+          />
+        </div>
       </div>
 
       <div>
@@ -36,15 +42,22 @@ const BookCard = ({ book, categoryName }) => {
           {info.categories}
         </span>
         <div className="mt-4 flex gap-2  xl:items-center justify-start  flex-col md:flex-row ">
-          <button className="block bg-green-400  text-white flex-grow p-2 rounded-full hover:bg-green-300 text-sm transition-transform duration-100 ease-in-out active:scale-95 focus:ring-2 ring-offset-1 focus:ring-green-300 font-bold ">
+          <button className="btn bg-green-400  text-white flex-grow p-2 rounded-full hover:bg-green-300 focus:ring-green-300 relative">
             Want to read
+            <FaBookReader className="absolute left-3 top-[10px]" />
           </button>
-          <button className="block bg-yellow-400  text-white flex-grow p-2 rounded-full hover:bg-yellow-300 text-sm transition-transform duration-100 ease-in-out active:scale-95 focus:ring-2 ring-offset-1 focus:ring-yellow-300 font-bold">
+          <button className="btn bg-yellow-400  text-white flex-grow p-2 rounded-full hover:bg-yellow-300 focus:ring-yellow-300 relative">
+            <FaComments className="absolute left-3 top-[10px]" />
             Reviews
           </button>
-          {/* <AiOutlineHeart className="text-3xl text-red-400" /> */}
+          <button className="btn bg-transparent focus:bg-red-400  focus:text-white text-red-400 flex-grow p-2 border-2 border-red-400 rounded-full hover:bg-red-300 focus:ring-red-300 relative">
+            Favourite
+            <AiOutlineHeart className="absolute  left-3 top-[10px]" />
+          </button>
+          {/* <BsHeartFill className="nav-icon text-red-400" /> */}
         </div>
       </div>
+
       {/* <div className="overflow-hidden relative col-span-2 max-h-[50px]">
         <p className="text-sm text-gray-500 ">{info.description}</p>
       </div> */}
