@@ -9,7 +9,7 @@ const CategoryLists = ({ data }) => {
         (categoryName) =>
           data[categoryName] && (
             <>
-              <h2 className="font-extrabold text-bg-dark text-4xl lg:text-5xl  tracking-widest my-12 text-center whitespace-nowrap dark:text-white">
+              <h2 className="font-extrabold text-bg-dark text-4xl lg:text-5xl  tracking-widest my-12 text-center whitespace-nowrap dark:text-white font-main">
                 {capitalize(categoryName)}
               </h2>
               <CategoryList
