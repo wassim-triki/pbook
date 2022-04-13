@@ -22,7 +22,7 @@ const BookCard = ({ book, categoryName }) => {
   return (
     <div className="bg-gray-100 dark:bg-bg-dark-50 dark-mode-transition w-full shadow-sm rounded-2xl  p-3 relative min-h-[300px] grid grid-cols-2  font-main min-w-[300px]">
       <div className="relative ">
-        <div className="absolute h-[200px] w-[150px]  rounded-2xl -top-10">
+        <div className="absolute h-[200px] w-[135px]  rounded-2xl -top-10 flex justify-center">
           <img
             className="shadow-xl hover:shadow-2xl cursor-pointer hover:scale-110 transition-all duration-200 ease-in-out object-cover h-full rounded-2xl"
             src={info.imageLinks.thumbnail}
