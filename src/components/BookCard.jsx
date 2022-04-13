@@ -27,7 +27,9 @@ const BookCard = ({ book, categoryName }) => {
 
       <div>
         <h3 className="font-bold">{info.title}</h3>
-        <p className="text-gray-500 text-sm">{info.authors}</p>
+        <p className="text-gray-500 text-sm dark:text-gray-300">
+          {info.authors}
+        </p>
         <span
           className={`bg-red-200 text-gray-600 px-4 py-2 rounded-full mt-4  text-center inline-block text-xs font-semibold`}
         >
