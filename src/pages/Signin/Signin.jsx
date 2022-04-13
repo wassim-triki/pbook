@@ -59,7 +59,7 @@ const Home = () => {
       </video>
 
       <div className="bg-blend-color-burn h-screen w-screen absolute bg-black opacity-80 z-10"></div>
-      <div className="w-full h-full flex z-20 flex-col justify-around items-center gap-10 absolute ">
+      <div className="w-full h-full flex z-20 flex-col justify-center gap-32 items-center absolute ">
         <div className="flex flex-col items-center justify-between gap-4  md:mt-10">
           <h1 className="text-7xl font-brand text-red-500 md:text-9xl">
             {data.title}

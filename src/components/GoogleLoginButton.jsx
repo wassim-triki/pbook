@@ -19,7 +19,7 @@ const GoogleLoginButton = ({ handleSuccess, handleFailure, loading }) => {
         >
           {loading ? (
             <>
-              <Spinner size={'text-2xl'} /> {'Processing...'}{' '}
+              <Spinner className={'text-2xl'} /> {'Processing...'}{' '}
             </>
           ) : (
             <>

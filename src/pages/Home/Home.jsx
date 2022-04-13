@@ -8,6 +8,7 @@ import CategoryList from '../../components/CategoryLists';
 import CategoryLists from '../../components/CategoryLists';
 import { categories } from '../../data';
 import Spinner from '../../components/Spinner';
+import SideBar from '../../components/SideBar';
 const BOOKS_API_SUBJECT =
   'https://www.googleapis.com/books/v1/volumes?q=subject:';
 
@@ -43,16 +44,17 @@ const Home = () => {
 
   return (
     <div
-      className={`py-8 w-full ${
-        loading && 'h-screen'
-      } dark:bg-bg-dark dark-mode-transition dark:text-white ${
-        loading && 'grid place-content-center'
-      }`}
+      className={`py-8 w-full dark:bg-bg-dark dark-mode-transition dark:text-white min-h-screen ${
+        loading && 'grid place-content-center place-items-center'
+      } `}
     >
       {loading ? (
-        <Spinner color="text-red-main dark:text-white" size="text-4xl" />
+        <Spinner className={`text-4xl text-red-main ${!loading && 'hidden'}`} />
       ) : (
-        <CategoryLists data={data} />
+        <div className="grid lg:grid-cols-5 lg:mt-14 ">
+          <SideBar />
+          <CategoryLists data={data} />
+        </div>
       )}
     </div>
   );

@@ -33,7 +33,7 @@ const Navbar = () => {
         to="/"
         className={`px-4 py-2 text-xl nav-icon-large dark-mode-transition font-bold  ${
           pathname === '/'
-            ? 'text-white bg-bg-dark dark:bg-white dark:text-bg-dark'
+            ? 'text-white bg-bg-dark dark:bg-white dark:text-bg-dark hover:bg-gray-400'
             : 'text-gray-500'
         }`}
       >

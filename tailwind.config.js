@@ -13,6 +13,9 @@ module.exports = {
         'bg-dark': '#2f3034',
         'bg-dark-50': '#3e3f44',
       },
+      screens: {
+        big: '2000px',
+      },
     },
   },
   plugins: [],
