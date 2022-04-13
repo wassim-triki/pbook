@@ -42,19 +42,15 @@ const BookCard = ({ book, categoryName }) => {
           {info.categories}
         </span>
         <div className="mt-4 flex gap-2  xl:items-center justify-start  flex-col md:flex-row ">
-          <button className="btn bg-green-400  text-white flex-grow p-2 rounded-full hover:bg-green-300 focus:ring-green-300 relative">
+          <button className="btn bg-green-400  text-white flex-grow p-2 rounded-full hover:bg-green-300 focus:ring-green-300 ">
             Want to read
-            <FaBookReader className="absolute left-3 top-[10px]" />
           </button>
-          <button className="btn bg-yellow-400  text-white flex-grow p-2 rounded-full hover:bg-yellow-300 focus:ring-yellow-300 relative">
-            <FaComments className="absolute left-3 top-[10px]" />
+          <button className="btn bg-yellow-400  text-white flex-grow p-2 rounded-full hover:bg-yellow-300 focus:ring-yellow-300 ">
             Reviews
           </button>
-          <button className="btn bg-transparent focus:bg-red-400  focus:text-white text-red-400 flex-grow p-2 border-2 border-red-400 rounded-full hover:bg-red-300 focus:ring-red-300 relative">
+          <button className="btn bg-transparent focus:bg-red-400  focus:text-white text-red-400 flex-grow p-2 border-2 border-red-400 rounded-full hover:bg-red-300 focus:ring-red-300">
             Favourite
-            <AiOutlineHeart className="absolute  left-3 top-[10px]" />
           </button>
-          {/* <BsHeartFill className="nav-icon text-red-400" /> */}
         </div>
       </div>
 
