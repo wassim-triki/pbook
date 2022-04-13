@@ -43,7 +43,7 @@ const Home = () => {
 
   return (
     <div
-      className={`py-8 w-full dark:bg-bg-dark dark-mode-transition dark:text-white min-h-screen ${
+      className={`py-5 w-full dark:bg-bg-dark dark-mode-transition dark:text-white min-h-screen ${
         loading && 'grid place-content-center place-items-center'
       } `}
     >
