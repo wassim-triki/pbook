@@ -26,7 +26,7 @@
     @apply block flex-grow p-2 rounded-full  text-sm transition-transform duration-100 ease-in-out active:scale-95 focus:ring-2 ring-offset-1 font-bold font-main;
   }
   .top-cat {
-    @apply text-white font-body font-extrabold text-4xl p-10 rounded-xl bg-cover  text-center bg-center shadow-md hover:shadow-xl transition-all duration-200 ease-in-out hover:scale-105 cursor-pointer w-full min-w-[220px] md:min-h-[200px] lg:min-h-[150px] lg:text-3xl lg:min-w-fit lg:p-4 md:flex items-center justify-center;
+    @apply text-white font-body font-extrabold text-4xl p-10 rounded-xl bg-cover  text-center bg-center shadow-md hover:shadow-xl transition-all duration-200 ease-in-out hover:scale-105 cursor-pointer w-full min-h-[150px]  min-w-[220px] md:min-h-[200px] lg:min-h-[150px] lg:text-3xl lg:min-w-fit lg:p-4 flex items-center justify-center;
   }
 }
 
