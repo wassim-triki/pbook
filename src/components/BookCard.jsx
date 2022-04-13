@@ -37,11 +37,13 @@ const BookCard = ({ book, categoryName }) => {
           <p className="text-gray-500 text-sm dark:text-gray-300">
             {info.authors}
           </p>
-          <span
-            className={`bg-red-200 text-gray-600 px-4 py-2 rounded-full mt-4  text-center inline-block text-xs font-semibold`}
-          >
-            {info.categories}
-          </span>
+          {info.categories && (
+            <span
+              className={`bg-red-200 text-gray-600 px-4 py-2 rounded-full mt-4  text-center inline-block text-xs font-semibold`}
+            >
+              {info.categories}
+            </span>
+          )}
         </div>
 
         <div className="flex flex-col gap-2">

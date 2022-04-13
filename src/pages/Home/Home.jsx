@@ -9,8 +9,7 @@ import CategoryLists from '../../components/CategoryLists';
 import { categories } from '../../data';
 import Spinner from '../../components/Spinner';
 import SideBar from '../../components/SideBar';
-const BOOKS_API_SUBJECT =
-  'https://www.googleapis.com/books/v1/volumes?q=subject:';
+const BOOKS_API = 'https://www.googleapis.com/books/v1/volumes?q=';
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -26,7 +25,7 @@ const Home = () => {
           categories.map(async (c) => {
             const formattedCat = c.replace(/\s/, '+');
             return axios
-              .get(`${BOOKS_API_SUBJECT}${formattedCat}&maxResults=6`)
+              .get(`${BOOKS_API}subject:${formattedCat}&maxResults=6`)
               .then((response) => (booksData[c] = response.data.items));
           })
         );
