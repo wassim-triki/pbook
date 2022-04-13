@@ -50,7 +50,7 @@ const Home = () => {
       {loading ? (
         <Spinner className={`text-4xl text-red-main ${!loading && 'hidden'}`} />
       ) : (
-        <div className="lg:grid lg:grid-cols-5 lg:mt-14 ">
+        <div className="lg:grid lg:grid-cols-5 lg:mt-14 lg:py-8 ">
           <SideBar />
           <CategoryLists data={data} />
         </div>
