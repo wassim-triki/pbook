@@ -8,7 +8,7 @@ const CategoryLists = ({ data }) => {
   }, []);
   return (
     <div className=" px-5 dark:text-white flex flex-col gap-6 items-center col-span-4">
-      <div className="flex flex-col gap-5 w-full md:grid md:grid-cols-2 lg:grid-cols-4 items-center px-10">
+      <div className="flex flex-col gap-5 w-full md:grid md:grid-cols-2 lg:grid-cols-4 items-center ">
         <div className='top-cat bg-[url("https://liyasthomas.github.io/books/icons/Bullseye-Gradient.svg")] '>
           Daily Top 5
         </div>
@@ -26,7 +26,7 @@ const CategoryLists = ({ data }) => {
         (categoryName) =>
           data[categoryName] && (
             <>
-              <h2 className="font-extrabold text-bg-darkx text-4xl lg:text-5xl  tracking-widest my-12  lg:self-start whitespace-nowrap dark:text-white font-main">
+              <h2 className="font-extrabold text-bg-dark text-4xl lg:text-5xl  my-12  lg:self-start whitespace-nowrap dark:text-white font-body">
                 {capitalize(categoryName)}
               </h2>
               <CategoryList
