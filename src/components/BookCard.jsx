@@ -23,9 +23,19 @@ const BookCard = ({ book, categoryName }) => {
   });
 
   return (
-    <div>
-      <div></div>
-      <img src={info.imageLinks.thumbnail} alt={info.title} />
+    <div className="flex bg-gray-200 p-4 rounded-2xl justify-between items-stretch font-main ">
+      <div className=" flex-grow">
+        <h3 className="font-body font-bold text-bg-dark">{info.title}</h3>
+        <p className="text-sm text-gray-500">{info.authors}</p>
+        <span className="text-sm bg-red-300 p-2 rounded-full flex items-center justify-center">
+          {info.categories}
+        </span>
+      </div>
+      <img
+        className="rounded-2xl"
+        src={info.imageLinks.thumbnail}
+        alt={info.title}
+      />
     </div>
   );
 };
