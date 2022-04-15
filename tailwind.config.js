@@ -14,7 +14,8 @@ module.exports = {
         'bg-dark-50': '#3e3f44',
       },
       screens: {
-        big: '2000px',
+        '3xl': '2000px',
+        '4xl': '3000px',
       },
     },
   },
