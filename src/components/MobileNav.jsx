@@ -27,6 +27,12 @@ const MobileNav = () => {
   const { pathname } = useLocation();
   const { isDark, setIsDark } = useDarkMode();
   // useEffect(() => {}, [pathname]);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   const controlNav = () => {
     if (window.scrollY > lastScrollY) {
@@ -46,19 +52,30 @@ const MobileNav = () => {
         user && showNav ? ' bottom-12 opacity-100 ' : ' -bottom-12 opacity-0 '
       } left-[11.5%]   w-[75%] rounded-full p-4 transition-all duration-200 ease-in-out`}
     >
-      {navLinks.map((obj) => {
-        const iconType = obj.pathname === pathname ? 'iconFill' : 'iconOutline';
-        const Icon = obj[iconType];
-        return (
-          <Link to={obj.pathname} key={obj.pathname}>
-            <Icon
-              className={`nav-icon dark-mode-transition ${
-                pathname === obj.pathname && 'text-gray-700'
-              }`}
-            />
-          </Link>
-        );
-      })}
+      <Link to={'/'}>
+        {pathname === '/' ? (
+          <HiHome
+            className="nav-icon dark-mode-transition text-gray-700"
+            onClick={scrollToTop}
+          />
+        ) : (
+          <HiOutlineHome className="nav-icon dark-mode-transition" />
+        )}
+      </Link>
+      <Link to={'/search'}>
+        <BiSearch
+          className={`nav-icon dark-mode-transition ${
+            pathname === '/search' && 'text-gray-700'
+          }`}
+        />
+      </Link>
+      <Link to={'/notifications'}>
+        {pathname === '/notifications' ? (
+          <AiFillBell className="nav-icon dark-mode-transition text-gray-700" />
+        ) : (
+          <AiOutlineBell className="nav-icon dark-mode-transition" />
+        )}
+      </Link>
 
       <Link to={'/profile'}>
         {user?.imageUrl ? (
