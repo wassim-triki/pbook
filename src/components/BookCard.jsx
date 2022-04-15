@@ -23,19 +23,20 @@ const BookCard = ({ book, categoryName }) => {
   });
 
   return (
-    <div className="flex bg-gray-200 p-4 rounded-2xl justify-between items-stretch font-main ">
-      <div className=" flex-grow">
-        <h3 className="font-body font-bold text-bg-dark">{info.title}</h3>
-        <p className="text-sm text-gray-500">{info.authors}</p>
-        <span className="text-sm bg-red-300 p-2 rounded-full flex items-center justify-center">
-          {info.categories}
-        </span>
+    <div className=" h-[350px] bg-blacsk  w-full flex items-center justify-center  ">
+      <div className="group cursor-pointer h-full w-[69%] bg-blaxck lg:w-[69%] overflow-hidden flex items-center justify-center rounded-xl relative">
+        <img
+          className=" group-hover:h-[120%] transition-all duration-200 ease-in-out h-full object-center object-cover rounded-xl"
+          src={info.imageLinks.thumbnail}
+          alt={info.title}
+        />
+        <div className=" font-body opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in-out absolute h-full w-full p-5 bg-[rgba(0,0,0,.7)] ">
+          <h3 className="font-body font-bold text-xl text-white">
+            {info.title}
+          </h3>
+          <p className="text-sm font-semibold text-gray-400">{info.authors}</p>
+        </div>
       </div>
-      <img
-        className="rounded-2xl"
-        src={info.imageLinks.thumbnail}
-        alt={info.title}
-      />
     </div>
   );
 };

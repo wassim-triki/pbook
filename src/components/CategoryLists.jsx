@@ -26,9 +26,10 @@ const CategoryLists = ({ data }) => {
         (categoryName) =>
           data[categoryName] && (
             <>
-              <h2 className="font-extrabold text-bg-dark text-4xl lg:text-5xl  my-12  lg:self-start whitespace-nowrap dark:text-white font-body">
+              <h2 className="font-extrabold text-bg-dark text-4xl lg:text-5xl  mt-12  lg:self-start whitespace-nowrap dark:text-white font-body">
                 {capitalize(categoryName)}
               </h2>
+              <span className="w-[80%] h-[1px] rounded-full bg-[rgba(0,0,0,.4)]"></span>
               <CategoryList
                 key={categoryName}
                 categoryName={categoryName}
