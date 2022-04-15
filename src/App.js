@@ -13,6 +13,7 @@ import DarkModeContext, {
 import { useContext, useEffect } from 'react';
 import DarkModeContainer from './components/DarkModeContainer';
 import Profile from './pages/Profile';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
                   }
                 />
               </Routes>
+              <Footer />
             </Router>
           </UserProvider>
         </DarkModeContainer>
