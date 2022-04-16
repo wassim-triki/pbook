@@ -45,15 +45,17 @@ const Home = () => {
 
   return (
     <div
-      className={`py-5 w-full dark:bg-bg-dark dark-mode-transition dark:text-white min-h-screen ${
+      className={`py-1 w-full dark:bg-bg-dark dark-mode-transition dark:text-white min-h-screen ${
         loading && 'grid place-content-center place-items-center'
       } `}
     >
       {loading ? (
         <Spinner className={`text-4xl text-red-main ${!loading && 'hidden'}`} />
       ) : (
-        <div className="lg:grid lg:grid-cols-5 lg:mt-14 lg:py-8 ">
+        <div className="lg:grid lg:grid-cols-5 lg:mt-14 lg:py-8 relative ">
+          {/* <SideBar /> */}
           <SideBar />
+          <div></div>
           <CategoryLists data={data} />
         </div>
       )}
