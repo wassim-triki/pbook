@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 const BookDetails = () => {
   const [book, setBook] = useState(null);
   const { id } = useParams();
+  useEffect(() => console.log(id));
   useEffect(() => {
     const getBookById = async (id) => {
       const response = await axios.get(
