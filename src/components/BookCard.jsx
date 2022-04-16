@@ -27,12 +27,6 @@ const BookCard = ({ book, categoryName }) => {
   });
 
   return (
-    // <Link to={`/book/${book.id}`} className="bg-red-500 w-3/4 rounded-2xl">
-    //   <img
-    //     src={info.imageLinks.thumbnail}
-    //     alt={info.title}
-    //     className="w-full rounded-2xl"
-    //   />
     <div className="group bg-black overflow-hidden relative w-3/4 lg:w-[60%] rounded-2xl">
       <img
         className="group-hover:scale-125 w-full h-auto trans"
@@ -67,7 +61,6 @@ const BookCard = ({ book, categoryName }) => {
         </div>
       </div>
     </div>
-    // </Link>
   );
 };
 
