@@ -26,7 +26,7 @@ const Navbar = () => {
         <img
           src="https://firebasestorage.googleapis.com/v0/b/pbook-346616.appspot.com/o/logo-192x192.png?alt=media&token=2b14b91b-fec6-4b3e-b790-6ec3306f55c4"
           alt="logo"
-          className="h-3/4"
+          className="h-2/4"
         />
         <span className="font-main font-black text-3xl text-red-main">
           book
