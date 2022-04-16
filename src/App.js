@@ -14,6 +14,7 @@ import { useContext, useEffect } from 'react';
 import DarkModeContainer from './components/DarkModeContainer';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
+import BookDetails from './components/BookDetails';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
                     </ProtectedRoute>
                   }
                 />
+                <Route path="/book/:id" element={<BookDetails />}></Route>
               </Routes>
               <Footer />
             </Router>

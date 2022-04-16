@@ -4,6 +4,9 @@ import { AiFillHeart } from 'react-icons/ai';
 import { BsHeartFill } from 'react-icons/bs';
 import { FaBookReader } from 'react-icons/fa';
 import { FaComments } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { AiOutlineLink } from 'react-icons/ai';
 
 const categoryColors = {
   psychology: 'teal',
@@ -17,30 +20,54 @@ const categoryColors = {
 };
 
 const BookCard = ({ book, categoryName }) => {
+  const navigate = useNavigate();
   const info = book.volumeInfo;
   useEffect(() => {
     console.log(info);
   });
 
   return (
-    <div className="group relative cursor-pointer h-[350px]  bg-blacsk  w-[70%] flex items-center justify-center shadow-sm hover:shadow-xl transition-all duration-200 ease-in-out overflow-hidden rounded-xl  ">
+    // <Link to={`/book/${book.id}`} className="bg-red-500 w-3/4 rounded-2xl">
+    //   <img
+    //     src={info.imageLinks.thumbnail}
+    //     alt={info.title}
+    //     className="w-full rounded-2xl"
+    //   />
+    <div className="group bg-black overflow-hidden relative w-3/4 lg:w-[60%] rounded-2xl">
       <img
-        className="absolute top-0 left-0 w-full h-full group-hover:h-[120%] transition-all duration-200 ease-in-out object-center object-cover rounded-xl"
+        className="group-hover:scale-125 w-full h-auto trans"
         src={info.imageLinks.thumbnail}
         alt={info.title}
       />
-      <div className=" font-body opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in-out backdrop-blur-sm absolute h-full w-full p-5 bg-[rgba(0,0,0,.5)] rounded-xl">
-        <h3 className="font-body font-bold text-xl text-white">{info.title}</h3>
-        <p className="text-sm font-semibold text-gray-400">{info.authors}</p>
-        {info.categories && (
-          <span
-            className={`bg-red-200 text-gray-600 px-4 py-2 rounded-full mt-4  text-center inline-block text-xs font-semibold`}
-          >
-            {info.categories}
-          </span>
-        )}
+      <div className="absolute bg-[rgba(0,0,0,.6)] top-0 left-0 h-full w-full  opacity-0   group-hover:opacity-100 backdrop-blur-sm p-5 trans">
+        <h3 className="font-body font-bold text-xl text-white scale-0 group-hover:scale-100 trans">
+          {info.title}
+        </h3>
+        <p className="text-sm font-semibold text-gray-400 scale-0 group-hover:scale-100 trans">
+          {info.authors}
+        </p>
+        <div className="flex items-center gap-2 mt-4">
+          {info.categories && (
+            <span
+              className={`bg-red-200 text-gray-600 px-4 py-2 rounded-full   text-center inline-block text-xs font-semibold scale-0 group-hover:scale-100 trans`}
+            >
+              {info.categories}
+            </span>
+          )}
+          <BsFillArrowRightCircleFill
+            className="nav-icon scale-0 group-hover:scale-100 trans  text-green-400 hover:text-green-300 "
+            onClick={() => navigate(`/book/${book.id}`)}
+          />
+        </div>
+        <div className=" w-full h-full absolute left-0 p-5">
+          <p className="text-gray-300 font-normal font-main text-sm scale-0 group-hover:scale-100 trans">
+            {info.description}
+          </p>
+          <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-t from-black"></div>
+        </div>
       </div>
     </div>
+    // </Link>
   );
 };
 

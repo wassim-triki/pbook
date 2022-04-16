@@ -9,7 +9,7 @@ import CategoryLists from '../../components/CategoryLists';
 import { categories } from '../../data';
 import Spinner from '../../components/Spinner';
 import SideBar from '../../components/SideBar';
-const BOOKS_API = 'https://www.googleapis.com/books/v1/volumes?q=';
+// const BOOKS_API = 'https://www.googleapis.com/books/v1/volumes?q=';
 
 const Home = () => {
   const [data, setData] = useState({});
@@ -26,7 +26,7 @@ const Home = () => {
             const formattedCat = c.replace(/\s/, '+');
             return axios
               .get(
-                `${BOOKS_API}subject:${formattedCat}&maxResults=6&startIndex=5`
+                `${process.env.REACT_APP_GOOGLE_BOOKS_API}subject:${formattedCat}&maxResults=6&startIndex=5`
               )
               .then((response) => (booksData[c] = response.data.items));
           })
@@ -52,12 +52,7 @@ const Home = () => {
       {loading ? (
         <Spinner className={`text-4xl text-red-main ${!loading && 'hidden'}`} />
       ) : (
-        <div className="lg:grid lg:grid-cols-5 lg:mt-14 lg:py-8 relative ">
-          {/* <SideBar /> */}
-          <SideBar />
-          <div></div>
-          <CategoryLists data={data} />
-        </div>
+        <CategoryLists data={data} />
       )}
     </div>
   );

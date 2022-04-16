@@ -15,9 +15,9 @@ const Navbar = () => {
   const toggleDarkMode = () => setIsDark(!isDark);
   return (
     <nav
-      className={`hidden lg:visible px-10 pl-3 w-full gap-4 h-20 ${
-        user ? 'lg:grid' : 'hidden'
-      } items-center text-lg fixed z-50 dark:text-white dark:bg-bg-dark dark-mode-transition bg-white font-body grid-cols-5  content-center overflow-hidden`}
+      className={`hidden lg:visible px-10 w-full gap-4 h-20 ${
+        user ? 'lg:flex' : 'hidden'
+      } items-center text-lg fixed z-50 dark:text-white dark:bg-bg-dark dark-mode-transition bg-white font-body  content-center overflow-hidden`}
     >
       <Link
         to={'/'}
@@ -33,42 +33,40 @@ const Navbar = () => {
         </span>
       </Link>
 
-      <div className="col-span-4 flex gap-5  ">
-        <form className="bg-gray-200 rounded-full flex items-center relative flex-1">
-          <BiSearch className="absolute p-2 text-gray-400    rounded-full w-auto h-full cursor-pointer" />
-          <input
-            type="text"
-            placeholder="Search"
-            className="bg-gray-200 rounded-full py-2 px-4 pl-10 focus:ring-2 outline-none active:ring-2 ring-offset-1 w-full  h-full text-black hover:bg-gray-300"
-          />
-        </form>
-        <AiFillBell className="nav-icon nav-icon-large dark-mode-transition" />
-        {isDark ? (
-          <WiMoonAltWaningGibbous1
-            className="nav-toggle-theme transition-all dark-mode-transition"
-            onClick={toggleDarkMode}
-          />
-        ) : (
-          <WiMoonAltWaningCrescent6
-            className="nav-toggle-theme transition-all dark-mode-transition"
-            onClick={toggleDarkMode}
-          />
-        )}
+      <form className="bg-gray-200 rounded-full flex items-center relative flex-1">
+        <BiSearch className="absolute p-2 text-gray-400    rounded-full w-auto h-full cursor-pointer" />
+        <input
+          type="text"
+          placeholder="Search"
+          className="bg-gray-200 rounded-full py-2 px-4 pl-10 focus:ring-2 outline-none active:ring-2 ring-offset-1 w-full  h-full text-black hover:bg-gray-300"
+        />
+      </form>
+      <AiFillBell className="nav-icon nav-icon-large dark-mode-transition" />
+      {isDark ? (
+        <WiMoonAltWaningGibbous1
+          className="nav-toggle-theme transition-all dark-mode-transition"
+          onClick={toggleDarkMode}
+        />
+      ) : (
+        <WiMoonAltWaningCrescent6
+          className="nav-toggle-theme transition-all dark-mode-transition"
+          onClick={toggleDarkMode}
+        />
+      )}
 
-        <Link to={'/profile'}>
-          {user?.imageUrl ? (
-            <div className="w-12 h-12 p-2 rounded-full  overflow-hidden hover:bg-gray-200 nav-icon-large dark-mode-transition">
-              <img
-                src={user?.imageUrl}
-                alt="prfile picture"
-                className="object-cover rounded-full w-12"
-              />
-            </div>
-          ) : (
-            <HiUserCircle className="nav-icon" />
-          )}
-        </Link>
-      </div>
+      <Link to={'/profile'}>
+        {user?.imageUrl ? (
+          <div className="w-12 h-12 p-2 rounded-full  overflow-hidden hover:bg-gray-200 nav-icon-large dark-mode-transition">
+            <img
+              src={user?.imageUrl}
+              alt="prfile picture"
+              className="object-cover rounded-full w-12"
+            />
+          </div>
+        ) : (
+          <HiUserCircle className="nav-icon" />
+        )}
+      </Link>
     </nav>
   );
 };
