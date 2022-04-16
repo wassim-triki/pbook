@@ -16,6 +16,8 @@ const Home = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const startIndex = 0;
+  const maxResults = 20;
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -29,7 +31,7 @@ const Home = () => {
             const formattedCat = c.replace(/\s/, '+');
             return axios
               .get(
-                `${process.env.REACT_APP_GOOGLE_BOOKS_API}subject:${formattedCat}&maxResults=6&startIndex=5`
+                `${process.env.REACT_APP_GOOGLE_BOOKS_API}subject:${formattedCat}&maxResults=${maxResults}&startIndex=${startIndex}`
               )
               .then((response) => (booksData[c] = response.data.items));
           })

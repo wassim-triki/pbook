@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { categories } from '../data';
 import CategoryList from './CategoryList';
 const capitalize = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase();
