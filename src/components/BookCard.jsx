@@ -46,16 +46,16 @@ const BookCard = ({ book, categoryName }) => {
         <p className="text-sm font-semibold text-gray-400 scale-0 group-hover:scale-100 trans">
           {info.authors}
         </p>
-        <div className="flex items-center gap-2 mt-4">
+        <div className="flex items-stretch gap-2 mt-4 bg-blacks h-9">
           {info.categories && (
             <span
-              className={`bg-red-200 text-gray-600 px-4 py-2 rounded-full   text-center inline-block text-xs font-semibold scale-0 group-hover:scale-100 trans`}
+              className={`bg-red-200 self-center text-gray-600 px-4 py-2 rounded-full   text-center inline-block text-xs font-semibold scale-0 group-hover:scale-100 trans`}
             >
               {info.categories}
             </span>
           )}
           <BsFillArrowRightCircleFill
-            className="nav-icon scale-0 group-hover:scale-100 trans  text-green-400 hover:text-green-300 "
+            className="nav-icon h-full w-auto scale-0  group-hover:scale-100 trans  text-green-400 hover:text-green-300 "
             onClick={() => navigate(`/book/${book.id}`)}
           />
         </div>
