@@ -11,6 +11,7 @@ import { HiUserCircle } from 'react-icons/hi';
 import { useDarkMode } from '../context/DarkModeContext';
 import { WiMoonAltWaningCrescent6 } from 'react-icons/wi';
 import { WiMoonAltWaningGibbous1 } from 'react-icons/wi';
+import scrollToTop from '../helpers/scrollToTop';
 const navLinks = [
   { pathname: '/', iconOutline: HiOutlineHome, iconFill: HiHome },
   { pathname: '/search', iconOutline: BiSearch, iconFill: BiSearch },
@@ -27,12 +28,6 @@ const MobileNav = () => {
   const { pathname } = useLocation();
   const { isDark, setIsDark } = useDarkMode();
   // useEffect(() => {}, [pathname]);
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   const controlNav = () => {
     if (window.scrollY > lastScrollY) {

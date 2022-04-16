@@ -9,13 +9,16 @@ import CategoryLists from '../../components/CategoryLists';
 import { categories } from '../../data';
 import Spinner from '../../components/Spinner';
 import SideBar from '../../components/SideBar';
+import scrollToTop from '../../helpers/scrollToTop';
 // const BOOKS_API = 'https://www.googleapis.com/books/v1/volumes?q=';
 
 const Home = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   useEffect(() => {
     const getBooksByCategorie = async (categories) => {
       try {
