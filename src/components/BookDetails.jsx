@@ -13,7 +13,7 @@ const BookDetails = () => {
       setBook(response.data);
     };
     getBookById(id);
-  });
+  }, []);
   return (
     <div className="z-10 w-screen h-screen flex justify-center items-center">
       {book?.volumeInfo.title}
