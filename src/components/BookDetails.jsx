@@ -8,9 +8,9 @@ const BookDetails = () => {
   useEffect(() => console.log(id));
   useEffect(() => {
     const getBookById = async (id) => {
-      const response = await axios.get(
-        `${process.env.REACT_APP_GET_VOLUME}/${id}?key=${process.env.REACT_APP_GOOGLE_API_KEY}`
-      );
+      const url = `${process.env.REACT_APP_GET_VOLUME}/${id}?key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
+      console.log(url);
+      const response = await axios.get(url);
       setBook(response.data);
     };
     getBookById(id);
