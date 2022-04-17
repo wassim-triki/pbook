@@ -31,6 +31,9 @@
   .trans {
     @apply transition-all duration-200 ease-in-out;
   }
+  .load-more {
+    @apply text-5xl text-red-500 group-disabled:text-gray-400 lg:group-hover:text-green-400 group-active:scale-90 group-disabled:group-hover:text-gray-400;
+  }
 }
 
 * {

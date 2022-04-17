@@ -16,9 +16,7 @@ const CategoryList = ({ categoryName, books }) => {
           setEnd((end) => end - 5);
         }}
       >
-        <AiFillPlayCircle
-          className={`-rotate-90 text-5xl text-red-400 group-disabled:text-gray-400 lg:group-hover:text-green-400 group-active:scale-90 trans`}
-        />
+        <AiFillPlayCircle className={`-rotate-90 load-more`} />
       </button>
 
       {books.slice(start, end).map((b) => (
@@ -32,7 +30,7 @@ const CategoryList = ({ categoryName, books }) => {
           setEnd((end) => end + 5);
         }}
       >
-        <AiFillPlayCircle className="rotate-90 text-5xl text-red-400 group-disabled:text-gray-400 lg:group-hover:text-green-400 group-active:scale-90" />
+        <AiFillPlayCircle className="rotate-90 load-more" />
       </button>
     </div>
   );

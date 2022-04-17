@@ -7,7 +7,7 @@ const CategoryLists = ({ data }) => {
     console.log(data);
   }, []);
   return (
-    <div className=" px-5 dark:text-white mt-4 lg:mt-20 flex flex-col gap-6 items-center col-span-4">
+    <div className=" px-5 dark:text-white my-4 lg:mt-20 flex flex-col gap-6 items-center col-span-4">
       <div className="flex flex-col gap-5 w-full md:grid md:grid-cols-2 lg:grid-cols-4 items-center ">
         <div className='top-cat bg-[url("https://liyasthomas.github.io/books/icons/Bullseye-Gradient.svg")] '>
           Daily Top 5
