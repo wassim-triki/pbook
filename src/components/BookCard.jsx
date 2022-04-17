@@ -27,7 +27,7 @@ const BookCard = ({ book, categoryName }) => {
   });
 
   return (
-    <div className="group bg-black overflow-hidden relative w-3/4 lg:w-[60%] rounded-2xl">
+    <div className="group bg-black overflow-hidden relative w-3/4 lg:w-[60%] rounded-2xl hover:shadow-md">
       <img
         className="group-hover:scale-125 w-full h-auto trans"
         src={info?.imageLinks?.thumbnail}

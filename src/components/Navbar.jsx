@@ -7,6 +7,7 @@ import { HiUserCircle } from 'react-icons/hi';
 import { WiMoonAltWaningCrescent6 } from 'react-icons/wi';
 import { WiMoonAltWaningGibbous1 } from 'react-icons/wi';
 import DarkModeContext, { useDarkMode } from '../context/DarkModeContext';
+import scrollToTop from '../helpers/scrollToTop';
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
@@ -34,6 +35,7 @@ const Navbar = () => {
       </Link>
 
       <Link
+        onClick={scrollToTop}
         to={'/'}
         className={`${
           pathname === '/'

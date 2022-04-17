@@ -16,7 +16,7 @@ const CategoryList = ({ categoryName, books }) => {
           setEnd((end) => end - 5);
         }}
       >
-        <AiFillPlayCircle className={`-rotate-90 load-more`} />
+        <AiFillPlayCircle className={`-rotate-90 load-more trans`} />
       </button>
 
       {books.slice(start, end).map((b) => (
@@ -30,7 +30,7 @@ const CategoryList = ({ categoryName, books }) => {
           setEnd((end) => end + 5);
         }}
       >
-        <AiFillPlayCircle className="rotate-90 load-more" />
+        <AiFillPlayCircle className="rotate-90 load-more trans" />
       </button>
     </div>
   );
