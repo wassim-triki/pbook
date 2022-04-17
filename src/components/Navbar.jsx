@@ -33,7 +33,18 @@ const Navbar = () => {
         </span>
       </Link>
 
-      <form className="bg-gray-200 rounded-full flex items-center relative flex-1">
+      <Link
+        to={'/'}
+        className={`${
+          pathname === '/'
+            ? 'bg-bg-dark text-white dark:bg-white dark:text-bg-dark'
+            : 'bg-white text-bg-dark hover:bg-gray-300 dark:bg-bg-dark dark:hover:bg-bg-dark-50 dark:text-white'
+        } text-white font-bold text-xl px-4 h-1/2 rounded-full flex items-center justify-center`}
+      >
+        Home
+      </Link>
+
+      <form className="bg-gray-200 rounded-full flex items-center relative flex-1 h-1/2">
         <BiSearch className="absolute p-2 text-gray-400    rounded-full w-auto h-full cursor-pointer" />
         <input
           type="text"
