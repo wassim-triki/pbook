@@ -16,7 +16,7 @@ const Navbar = () => {
   const toggleDarkMode = () => setIsDark(!isDark);
   return (
     <nav
-      className={`hidden lg:visible px-10 w-full gap-4 h-20 ${
+      className={`hidden lg:visible px-5 w-full gap-4 h-20 ${
         user ? 'lg:flex' : 'hidden'
       } items-center text-lg fixed z-50 dark:text-white dark:bg-bg-dark dark-mode-transition bg-white font-body  content-center overflow-hidden`}
     >

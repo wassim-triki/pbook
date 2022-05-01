@@ -22,12 +22,10 @@ const Home = () => {
       setLoading(true);
       setError(null);
       const googleData = response.profileObj;
-      const resp = await axios.post(
-        `${process.env.REACT_APP_PBOOK_API}/api/signin`,
-        {
-          tokenId: response.tokenId,
-        }
-      );
+      const URL = `${process.env.REACT_APP_PBOOK_API || URL_LOCAL}/api/signin`;
+      const resp = await axios.post(URL, {
+        tokenId: response.tokenId,
+      });
       const userData = resp.data;
       localStorage.setItem('user', JSON.stringify(userData));
       setUser(userData);

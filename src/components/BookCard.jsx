@@ -45,7 +45,7 @@ const BookCard = ({ book, categoryName }) => {
             <span
               className={`bg-red-200 self-center text-gray-600 px-4 py-2 rounded-full   text-center inline-block text-xs font-semibold scale-0 group-hover:scale-100 trans`}
             >
-              {info?.categories}
+              {info?.categories[0]}
             </span>
           )}
           <BsFillArrowRightCircleFill

@@ -3,9 +3,6 @@ import { categories } from '../data';
 import CategoryList from './CategoryList';
 const capitalize = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase();
 const CategoryLists = ({ data }) => {
-  useEffect(() => {
-    console.log(data);
-  }, []);
   return (
     <div className=" px-5 dark:text-white my-4 lg:mt-20 flex flex-col gap-6 items-center col-span-4">
       <div className="flex flex-col gap-5 w-full md:grid md:grid-cols-2 lg:grid-cols-4 items-center ">
