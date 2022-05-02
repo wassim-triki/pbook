@@ -14,7 +14,6 @@ import DarkModeContainer from './components/DarkModeContainer';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import BookDetails from './components/BookDetails';
-
 function App() {
   return (
     <div className={`App`}>
